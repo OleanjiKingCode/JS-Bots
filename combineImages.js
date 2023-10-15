@@ -1,21 +1,21 @@
 const { createCanvas, loadImage } = require('canvas');
 const fs = require('fs');
 
-async function combineImages(image1Path, image2Path, outputPath) {
+async function combineImages(imageAPath, imageBPath, outputPath) {
   try {
     // Load images
-    const image1 = await loadImage(image1Path);
-    const image2 = await loadImage(image2Path);
+    const imageA = await loadImage(imageAPath);
+    const imageB = await loadImage(imageBPath);
 
     // Create a canvas with dimensions of the first image
-    const canvas = createCanvas(image1.width, image1.height);
+    const canvas = createCanvas(imageA.width, imageA.height);
     const ctx = canvas.getContext('2d');
 
     // Draw the first image
-    ctx.drawImage(image1, 0, 0, image1.width, image1.height);
+    ctx.drawImage(imageA, 0, 0, imageA.width, imageA.height);
 
     // Draw the second image on top of the first
-    ctx.drawImage(image2, 0, 0, image1.width, image1.height);
+    ctx.drawImage(imageB, 0, 0, imageA.width, imageA.height);
 
     // Save the result to a file
     const outputStream = fs.createWriteStream(outputPath);
@@ -31,8 +31,8 @@ async function combineImages(image1Path, image2Path, outputPath) {
 }
 
 // Example usage
-const image1Path = 'inouts/0.png';
-const image2Path = 'inouts/1.png';
-const outputPath = 'result/result.png';
+const imageAPath = 'location-of-imageA-here.png';
+const imageBPath = 'location-of-imageA-here.png';
+const outputPath = 'location-chosen-for-result.png';
 
-combineImages(image1Path, image2Path, outputPath);
+combineImages(imageAPath, imageBPath, outputPath);
