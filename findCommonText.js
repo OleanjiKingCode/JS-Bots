@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 // Read the JSON file
-const jsonData = fs.readFileSync("allData.json");
+const jsonData = fs.readFileSync("locationOfJSONfile");
 const data = JSON.parse(jsonData);
 
 // Extract and process the image property

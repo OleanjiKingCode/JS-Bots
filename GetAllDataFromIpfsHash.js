@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 
-const baseUrl = 'https://ipfs.io/ipfs/bafybeie2o2kejwecixy7bvq5gs7nain7zi3omigbzav7tltnooluuj3vdy/';
+const baseUrl = 'https://ipfs.io/ipfs/ipfs-hash-link/';
 
 async function fetchDataAndCollect(index, dataArray) {
   const url = `${baseUrl}${index}.json`;
@@ -18,7 +18,7 @@ async function fetchDataAndCollect(index, dataArray) {
 }
 
 async function fetchDataForAll() {
-  const numberOfRequests = 4443;
+  const numberOfRequests = numberOfItemsToGetFromTheLink;
   const allData = [];
 
   for (let i = 0; i <= numberOfRequests; i++) {
@@ -26,7 +26,7 @@ async function fetchDataForAll() {
   }
 
   // Save all collected data to a single file
-  const outputFileName = 'allData.json';
+  const outputFileName = 'lication-of-the-resultData.json';
   fs.writeFileSync(outputFileName, JSON.stringify(allData, null, 2));
   console.log(`All data saved to ${outputFileName}`);
 }
